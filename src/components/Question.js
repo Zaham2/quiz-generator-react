@@ -1,5 +1,6 @@
 import React from 'react'
 import Answer from './Answer'
+import Button from './Button'
 
 const Question = ({ question, answers }) => {
 
@@ -10,6 +11,7 @@ const Question = ({ question, answers }) => {
     <div className='question-container'>
       <h2>Question</h2>
       {renderedAnswers}
+      <Button text='edit' onclick={() => console.log('edit')} />
     </div>
   )
 }
