@@ -1,4 +1,4 @@
-class Question {
+export class Question {
     constructor(data) {
       this.feedback_false = data.feedback_false;
       this.feedback_true = data.feedback_true;

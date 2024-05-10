@@ -1,4 +1,4 @@
-class Quiz {
+export class Quiz {
     constructor(data) {
       this.created = data.created;
       this.description = data.description;
@@ -10,4 +10,3 @@ class Quiz {
       this.url = data.url;
     }
   }
-  
