@@ -1,31 +1,28 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect, useContext } from 'react';
 import fetchData from '../services/data';
 
 
-const globalData = fetchData();
-export const GlobalContext = createContext(globalData);
+// const globalData = fetchData();
+export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-    const [data, setData] = useState(globalData);
+    const [data, setData] = useState(localStorage.getItem('quizzes') ? JSON.parse(localStorage.getItem('quizzes')) : []);
 
-    const createQuiz = (newData) => {
-        setData((prevData) => [...prevData, newData]);
-    };
+    useEffect(() => {
+        localStorage.getItem('quizzes') 
+    }, [data])
 
-    // const readData = (id) => {
-    //     return quizzes.find((item) => item.id === id);
+    // const createQuiz = (newData) => {
+    //     setData([...data, newData]);
     // };
 
-    const updateQuiz = (id, updatedData) => {
-        setData((prevData) => prevData.map((item) => (item.id === id ? updatedData : item)));
+    const updateData = (id, updatedData) => {
+        setData([...data, updatedData]);
     };
-
-    // const deleteData = (id) => {
-    //     setQuiz((prevData) => prevData.filter((item) => item.id !== id));
-    // };
 
     return (
-        <GlobalContext.Provider value={{quizzes: data, createQuiz, updateQuiz }}>
+        // updateQuiz was here
+        <GlobalContext.Provider value={{ data, setData, updateData }}> {}
             {children}
         </GlobalContext.Provider>
     )

@@ -1,24 +1,32 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { GlobalContext } from '../contexts/global'
 import DisplayQuiz from './DisplayQuiz'
 import Button from '../components/Button'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
 
-    const { quizzes } = useContext(GlobalContext)
-    const renderedQuizzes = quizzes.map(quiz => {
-        return (<DisplayQuiz quiz={quiz} />)
-    })
 
-    // const newQuizButton = (
-    //     <a href='/create-new-quiz'>
-    //         <button onClick={(e) => { }}>Create New Quiz</button>
-    //     </a>
-    // )
+    const navigate = useNavigate()
+    useEffect(() => {
+        console.log('Home.js')
+    }, [])
+    
+
+    const { data } = useContext(GlobalContext)
+    const renderedQuizzes = data.map(quiz => {
+        return (
+        <>
+            <DisplayQuiz quiz={quiz} />
+            <Button text='Edit' onclick={() => navigate(`/edit/${quiz.id}`)} />
+        </>)
+    })
 
     return (
         <div className='flex-container'>
-            <Button text='New Quiz' onclick={() => console.log('new quiz') } />
+            <Button text='Add New Quiz' onclick={() => navigate('/new/quiz') } />
+            <Button text='Add New Question' onclick={() => navigate('/new/question') } />
+            <Button text='Add New Answer' onclick={() => navigate('/new/answer') } />
             <h1 className='app-title'>All Quizzes</h1>
             {renderedQuizzes}
 

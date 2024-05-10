@@ -1,8 +1,11 @@
 import React from 'react'
 import Answer from './Answer'
 import Button from './Button'
+import { useNavigate } from 'react-router-dom'
 
 const Question = ({ question, answers }) => {
+
+  const navigate = useNavigate()
 
   const renderedAnswers = answers.map((answer) => {
     return <Answer answer={answer} />
@@ -11,7 +14,6 @@ const Question = ({ question, answers }) => {
     <div className='question-container'>
       <h2>Question</h2>
       {renderedAnswers}
-      <Button text='edit' onclick={() => console.log('edit')} />
     </div>
   )
 }
