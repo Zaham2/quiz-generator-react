@@ -5,7 +5,7 @@ export class Quiz {
       this.id = data.id;
       this.modified = data.modified;
       this.questions = data.questions_answers.map(questionData => new Question(questionData));
-      this.score = data.score;
+      this.finalScore = data.finalScore;
       this.title = data.title;
       this.url = data.url;
     }
