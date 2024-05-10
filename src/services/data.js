@@ -79,7 +79,7 @@ export default function fetchData() {
                     "text": "question 3 text"
                 }
             ],
-            "score": null,
+            "score": 321,
             "title": "quiz title 1",
             "url": "https://www.youtube.com/watch?v=e6EGQFJLl04"
         },
@@ -162,7 +162,7 @@ export default function fetchData() {
                     "text": "question 3 text"
                 }
             ],
-            "score": null,
+            "score": 123,
             "title": "quiz title 2",
             "url": "https://www.youtube.com/watch?v=e6EGQFJLl04"
         }

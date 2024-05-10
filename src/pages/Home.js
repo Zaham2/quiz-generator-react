@@ -18,7 +18,7 @@ const Home = () => {
 
     return (
         <div className='flex-container'>
-            <h1>All Quizzes</h1>
+            <h1 className='app-title'>All Quizzes</h1>
             {renderedQuizzes}
             {newQuizButton}
 

@@ -1,3 +1,5 @@
+import { Answer } from './Answer';
+
 export class Question {
     constructor(data) {
       this.feedback_false = data.feedback_false;
